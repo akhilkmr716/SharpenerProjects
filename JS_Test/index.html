@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="text-align: center;">Movie Booking</h1>
+    <p style="text-align: center;" id="p_t">Total Booked: 0</p>
+    <div style="text-align: center;">
+        <label for="findslot">Find Slot:</label>
+        <input type="text" id="findslot">
+    </div>
+    <br>
+    <br>
+    <form id="bookingform">
+        <label for="username">UserName:</label>
+        <input type="text" id="username">
+        <label for="seatno">Seat Number:</label>
+        <input type="number" id="seatno">
+        <button type="submit">Add</button>
+    </form>
+    <br>
+    <br>
+    <h1 id="no_book">Nothing Present</h1>
+    <ul id="ul_list"></ul>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
