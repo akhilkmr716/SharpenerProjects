@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="text-align: center;">Notebook</h1>
+    <div style="text-align: center;">
+        <label for="search">Search Notes:</label>
+        <input type="text" id="search">
+    </div>
+    <p style="text-align: center;" id="p_t">Total Notes: 0</p>
+    <p style="text-align: center;" id="s_t">Showing: 0</p>
+    <br>
+    <br>
+    <form id="bookingform">
+        <label for="title">Note Title:</label>
+        <input type="text" id="title"><br><br>
+        <label for="desc">Note Desc:</label>
+        <input type="text" id="desc"><br><br>
+        <button type="submit">Add To Book</button>
+    </form>
+    <br>
+    <br>
+    <ul id="ul_list"></ul>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
