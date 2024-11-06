@@ -112,6 +112,7 @@ async function deleteData(seatno){
   try{
     const data = axios.get('https://67169cd23fcb11b265d31f97.mockapi.io/api/moviedata');
     const res = await data;
+    console.log(res);
     let id;
     for(x of res.data){
       if(x.seatno == seatno){

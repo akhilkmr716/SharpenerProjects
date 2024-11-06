@@ -1,11 +1,29 @@
-const mul = (a,b) => {return a*b};
-console.log(mul(5,6));
-const student = {
-    rollNo : 1,
-    name: "Akhil",
-    class: 12,
-    display(){
-        console.log(`The student's name is ${this.name} and his roll no is ${this.rollNo}, He studies in class ${this.class}`);
+async function print(){
+    try{
+        function p1(){
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve("c");
+                },3000);
+            });
+        }
+        function p2(){
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve("d");
+                },0);
+            });
+        }
+        console.log("a");
+        console.log("b");
+        const res1 = await p1();
+        console.log(res1);
+        const res2 = await p2();
+        console.log(res2);
+        console.log("e");
+    }
+    catch(error){
+        console.log(error);
     }
 }
-console.log(student.display());
+print();
