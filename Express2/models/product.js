@@ -10,7 +10,7 @@ module.exports = class Product {
     save() {
         //products.push(this);
         //console.log(JSON.stringify(this));
-        fs.appendFile(path.join(rootDir, "data", "product.txt"), JSON.stringify(this) + "\n", (err) => {
+        fs.appendFile(path.join(rootDir, "data", "product.ndjson"), JSON.stringify(this) + "\n", (err) => {
             if(err) {
                 console.log(err);
                 return;
@@ -21,7 +21,7 @@ module.exports = class Product {
 
     static fetchAll() {
         try {
-            const data = fs.readFileSync(path.join(rootDir, "data", "product.txt"));
+            const data = fs.readFileSync(path.join(rootDir, "data", "product.ndjson"));
             const products = data.toString().trim().split("\n").map((e) => JSON.parse(e));
             return products;
         } catch(err) {
