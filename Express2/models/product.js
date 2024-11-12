@@ -10,22 +10,26 @@ module.exports = class Product {
     save() {
         //products.push(this);
         //console.log(JSON.stringify(this));
-        fs.appendFile(path.join(rootDir, "data", "product.ndjson"), JSON.stringify(this) + "\n", (err) => {
-            if(err) {
-                console.log(err);
-                return;
+        fs.readFile(path.join(rootDir, 'data', 'product.json'), (err, fileContent) => {
+            let products = [];
+            if(!err) {
+                products = JSON.parse(fileContent);
             }
-            console.log('Data appended to File!!!');
+            products.push(this);
+            fs.writeFile(path.join(rootDir, 'data', 'product.json'), JSON.stringify(products), (err) => {
+                console.log(err);
+            });
         });
     }
 
     static fetchAll() {
         try {
-            const data = fs.readFileSync(path.join(rootDir, "data", "product.ndjson"));
-            const products = data.toString().trim().split("\n").map((e) => JSON.parse(e));
-            return products;
+            const products = fs.readFileSync(path.join(rootDir, 'data', 'product.json'));
+            return JSON.parse(products);
         } catch(err) {
             console.error(err);
+            return [];
         }
+        
     }
 }
