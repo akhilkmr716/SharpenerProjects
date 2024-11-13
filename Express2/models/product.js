@@ -22,14 +22,13 @@ module.exports = class Product {
         });
     }
 
-    static fetchAll() {
-        try {
-            const products = fs.readFileSync(path.join(rootDir, 'data', 'product.json'));
-            return JSON.parse(products);
-        } catch(err) {
-            console.error(err);
-            return [];
-        }
+    static fetchAll(cb) {
+        fs.readFile(path.join(rootDir, 'data', 'product.json'), (err, fileContent) => {
+            if (err) {
+                cb([]);
+            }
+            cb(JSON.parse(fileContent));
+        });
         
     }
-}
+};
